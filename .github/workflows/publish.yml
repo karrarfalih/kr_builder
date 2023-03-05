@@ -7,6 +7,14 @@ on:
 
 jobs:
   publish:
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml
-    # with:
-    #   working-directory: path/to/package/within/repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+      - name: Activate dart packages
+        run: pub global activate dartdoc
+      - name: Build and publish package
+        run: |
+          pub get
+          dartdoc
+          pub publish
