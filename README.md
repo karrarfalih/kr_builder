@@ -6,7 +6,7 @@ To use this package, add `kr_future_builder` as a [dependency in your pubspec.ya
 
 ```yaml
 dependencies:
-  kr_future_builder: ^1.0.1
+  kr_builder: ^1.0.2
 ```
 Then, import the package:
 
@@ -16,7 +16,7 @@ import 'package:kr_future_builder/kr_future_builder.dart';
 Or You can install packages from the command line:
 
 ```
-flutter pub get
+flutter pub add kr_builder
 ```
 ## Usage
 ### Basic usage:

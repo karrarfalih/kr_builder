@@ -1,4 +1,4 @@
-# 1.0.0
+# 1.0.2
 Initial release of the kr_builder package, which provides the following widgets:
 
 * KrFutureBuilder: a replacement for FutureBuilder that adds support for loading, error, and empty states, and can display a shimmer effect during loading.
