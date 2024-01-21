@@ -6,7 +6,7 @@ To use this package, add `kr_future_builder` as a [dependency in your pubspec.ya
 
 ```yaml
 dependencies:
-  kr_builder: ^1.0.2
+  kr_builder: ^1.0.4
 ```
 Then, import the package:
 
@@ -42,6 +42,7 @@ KrStreamBuilder<String>(
 ```dart
 KrFutureBuilder<List<String>>(
     future: future,
+    initialData: data,
     shimmerSize: const Size(double.infinity, 60),
     baseColor: Colors.grey.withOpacity(0.2),
     highlightColor: Colors.grey.withOpacity(0.4),
@@ -75,6 +76,7 @@ The KrFutureBuilder constructor takes the following parameters:
 * shimmerRadius: an optional radius to set the corners of the shimmer effect. Ignored if blocs is set.
 * baseColor: an optional Color object to set the base color of the shimmer effect. Ignored if blocs is set.
 * highlightColor: an optional Color object to set the highlight color of the shimmer effect. Ignored if blocs is set.
+* initialData: an optional initial data.
 
 ## Example
 Sure, here is an example of how to use KrFutureBuilder:

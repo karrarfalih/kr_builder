@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kr_builder/loading.dart';
-import 'package:kr_builder/shimmer_bloc.dart';
+import 'package:kr_builder/src/loading.dart';
+import 'package:kr_builder/src/shimmer_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
 class KrStreamBuilder<T> extends StatelessWidget {
@@ -14,6 +14,7 @@ class KrStreamBuilder<T> extends StatelessWidget {
   ///return empty widget (or you can specify it) if the return is null;
   ///if the connections success then the data will pass to hte builder and build your widget.
   final Widget Function(T) builder;
+
   ///Specify the error widget.
   final Widget Function(Object?)? onError;
   final Widget? onEmpty;
@@ -21,29 +22,36 @@ class KrStreamBuilder<T> extends StatelessWidget {
 
   ///This can be used to add shimmer effect card loading. All you need is adding blocs of Containers.
   final Widget? blocs;
+
   ///Instead of blocs, you can specify the diamention and/or radius of the shimmer card.
   final Size? shimmerSize;
   final double? shimmerRadius;
+
   ///shimmer gradiant colors.
   final Color? baseColor;
   final Color? highlightColor;
-  
-  const KrStreamBuilder(
-      {Key? key,
-      required this.stream,
-      required this.builder,
-      this.onError,
-      this.shimmerSize,
-      this.shimmerRadius,
-      this.onEmpty,
-      this.blocs,
-      this.onLoading, this.baseColor, this.highlightColor})
-      : super(key: key);
+  final T? initialData;
+
+  const KrStreamBuilder({
+    Key? key,
+    required this.stream,
+    required this.builder,
+    this.onError,
+    this.shimmerSize,
+    this.shimmerRadius,
+    this.onEmpty,
+    this.blocs,
+    this.onLoading,
+    this.baseColor,
+    this.highlightColor,
+    this.initialData,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<T>(
       stream: stream,
+      initialData: initialData,
       builder: (context, data) {
         if (data.connectionState == ConnectionState.waiting) {
           if (shimmerSize != null) {
@@ -56,7 +64,8 @@ class KrStreamBuilder<T> extends StatelessWidget {
               color: Colors.white,
               child: Shimmer.fromColors(
                   baseColor: baseColor ?? Colors.grey.withOpacity(0.2),
-                  highlightColor: highlightColor ?? Colors.grey.withOpacity(0.4),
+                  highlightColor:
+                      highlightColor ?? Colors.grey.withOpacity(0.4),
                   enabled: true,
                   child: blocs!),
             );

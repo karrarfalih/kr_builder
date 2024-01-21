@@ -1,6 +1,6 @@
 name: kr_builder
 description: A Flutter package that replaces FutureBuilder and StreamBuilder with shimmer and animation effects.
-version: 1.0.3
+version: 1.0.4
 homepage: 'https://github.com/karrarfalih/kr_builder'
 
 environment:

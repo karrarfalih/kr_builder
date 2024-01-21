@@ -1,3 +1,8 @@
+# 1.0.4
+
+* Add initail data to both KrFutureBuilder & KrStreamBuilder
+* Add example
+
 # 1.0.2
 Initial release of the kr_builder package, which provides the following widgets:
 

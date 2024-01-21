@@ -1,4 +1,4 @@
 library kr_builder;
 
-export 'future_builder.dart';
-export 'stream_builder.dart';
+export 'src/future_builder.dart';
+export 'src/stream_builder.dart';
